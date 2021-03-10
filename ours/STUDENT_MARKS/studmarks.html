@@ -31,7 +31,7 @@ solu:)---
 select student_id, student_name, round(months_between(sysdate,dob)/12) as "Age" from student_personal_info order by student_id;
 
 <span style="background-color: black;padding: 4px; color: white;">
-
+<!--
 --3) write a query which will display the id, name, tamil mark, hindi mark, science mark, maths mark, social mark, total mark, average mark and grade of all students. 
 
 --    Display records sorted in ascending order based on id.
@@ -56,5 +56,5 @@ solu:)---
 
 select soi.student_id, spi.dob, spi.guardian_name, spi.address, spi.contact_number, spi.mail_id, spi.gender, soi.standard, soi.transport, soi.net_fees
 from student_official_info soi join student_personal_info spi on soi.student_id = spi.student_id order by spi.student_id;
-
+-->
 </pre>
