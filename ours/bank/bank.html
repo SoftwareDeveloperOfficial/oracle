@@ -41,7 +41,7 @@ on (a.ifsc_code = b.ifsc_code) order by a.customer_id;
 </span>
 solu:)--
 
-select customer_id,customer_name, round(months_between(sysdate,dob)/12) as "Age" from customer_info 
+select customer_id,customer_name, round(months_between(sysdate,dob)/12) as "Age",identification_doc_type from customer_personal_info 
 where age between 26 and 28 order by customer_id;
 
 <span style="background-color: black;padding: 4px; color: white;">
