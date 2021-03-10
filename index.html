@@ -4,25 +4,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../header/header.css">
-<link rel="stylesheet" href="mysql.css">
+<link rel="stylesheet" href="mys0ql.css">
+    <style>
+    .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+    </style>
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+    </script>
 </head>
 <body>
 
 
 <br><br>
 <script src="../header/header.js"></script>
-
 <div class="dropdown">
-    <div class="dropdown-content">
-      <a href="mysqlmcq.html" style="border-bottom: 1px solid gray;">Mcq's</a>
-      <a href="queries.html" style="border-bottom: 1px solid gray;">Schema's & Queries</a>
-      <a href="#" style="border-bottom: 1px solid gray;"><strike>Theory</strike></a>
-    </div>
-  </div>
-  <div class="dropdown">
-    <a href="mysql.html"> <button class="dropbtn"style="color:white;padding:5px;background-color: hotpink;">Schema's & Queries</button></a> 
-    <div class="dropdown-content">
+	<button onclick="myFunction()" class="dropbtn">Schema's & Queries</button>
+	<div id="myDropdown" class="dropdown-content">
+	 
       <a href="./ours/bank/bank.html" style="border-bottom: 1px solid gray;background-color: black;color: white;">1) Bank Management System</a>
       <a href="./ours/STUDENT_MARKS/studmarks.html" style="border-bottom: 1px solid gray;background-color: black;color: white;">2) Student Marks </a>
       <a href="./ours/MOBILE MANAGEMENT/mobile.html" style="border-bottom: 1px solid gray;background-color: black;color: white;">3) Mobile Management System </a>
