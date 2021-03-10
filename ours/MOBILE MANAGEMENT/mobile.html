@@ -28,6 +28,6 @@ select distinct unique( model_name), manufacturer, price from mobile_master wher
 </span>
 solu)--
 
-select ime_no, model_name, manufacturer , price , price+(price*10/100) "NEW PRICE" from mobile_master;
+select ime_no, model_name, manufacturer , price , (price+(price*10/100)) "NEW PRICE" from mobile_master order by ime_no;
 
 </pre>
