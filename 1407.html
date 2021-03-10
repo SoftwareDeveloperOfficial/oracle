@@ -1,6 +1,83 @@
-1)
-2)
-3)
-4)
-5)
-6)
+<span style="background-color: black;padding: 4px; color: white;">
+
+--1) write a query which will display the customer id, account type and the account number of hdfc customers who registered after 12-JAN-2012 
+
+--or before 04-APR-2012 sort by customer id ? 
+
+-- (Display the records sorted in ascending order based on customer id.)
+
+</span>
+solu:)--
+
+SELECT a.customer_id, a.account_type, a.account_no FROM account_info a JOIN bank_info b on (a.ifsc_code = b.ifsc_code) 
+where b.bank_name  = 'HDFC' and reg_date between '12-JAN-2012' and '04-APR-2012' order by a.customer_id;
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+--2) write a query which will display the customer id, customer name, account number, account type and  bank name where the customer hold the account sort by customer id.
+
+-- (Display the records sorted in ascending order based on customer id.)
+
+</span>
+solu:)--
+
+select a.customer_id, customer_name, a.account_no, a.account_type, b.bank_name from account_info a join bank_info b
+on (a.ifsc_code = b.ifsc_code) join customer_personal_info c on (a.customer_id = c.customer_id) order by a.customer_id;
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+-- 3) write a query to display unique mobile model name , manufacturer and price for all the mobiles having a price range betwen 8500 and 25300.
+
+-- (Display the records sorted in ascending order based on mobile model name)
+
+</span>
+solu)--
+
+select distinct unique( model_name), manufacturer, price from mobile_master where price between 8500 and 25300;
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+-- 4) write a query to display the id of the students who are eligible for scholarship and have not availed for transport.
+
+</span>
+solu:)---
+
+select s.student_id from student_official_info s join student_grade_info a 
+on s.student_id = a.student_id
+where s.transport = 'N' and a.avg_mark >70 order by s.student_id;
+
+
+
+<span style="background-color: black;padding: 4px;margin:4px; color: white;">
+
+-- 5) write a query to display employee id, employee name, basic pay, and tax percentage of all employees use 'Tax Percentage' as alias
+
+-- (if basic pay <= 4000 then tax percentage should be 10% basic <= 5000 then 20% basic <= 6000 then 30% basic > 6000 then 40%)
+
+-- '%' should be displayed as mentioned for tax percentage. 
+
+-- please do not display the details of the employees who are not assigned under any employee category.
+
+-- (Display the records sorted in ascending order based on employee id)
+
+</span>
+
+SOLU ) : --
+
+select empid, empname, basic
+( case 
+    when basic <=4000 then '10%'
+    when basic > 4000 and basic <= 5000 then '20%'
+    when basic > 5000 and basic <= 6000 then '30%'
+    else '40%'
+    end ) "Tax Percentage" from employee_info e inner join salary_info s on (e.employee_category = s.employee_category) where empid is not null order by empid;
+    
+<span style="background-color: black;padding: 4px; color: white;">
+
+--6) write a query to display the id, student name, Age of all students sort by id.
+
+</span></span>
+solu:)---
+
+select student_id, student_name, round(months_between(sysdate,dob)/12) as "Age" from student_personal_info order by student_id;
+
