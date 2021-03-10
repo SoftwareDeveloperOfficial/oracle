@@ -19,6 +19,7 @@ select distinct unique( model_name), manufacturer, price from mobile_master wher
 
 
 --2) write a query to display the IME number, model name, manufacturer , price and new price of all mobiles.
+solu)--
 
 select ime_no, model_name, manufacturer , price , price+(price*10/100) "NEW PRICE" from mobile_master;
 
