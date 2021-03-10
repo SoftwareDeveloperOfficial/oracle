@@ -7,7 +7,7 @@
 -- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- EMPLOYEE SCHEMA :-
 -- ---------------------------
-<!--
+
 <span style="background-color: black;padding: 4px; color: white;">
 -- 1) write a query to display employee id, employee name and remaining actual leaves(alias name : Remaining Leaves)
 
@@ -21,7 +21,7 @@ solu:)--
 select ei.empid, ei.empname, (sum(eli.total_leaves) - li.cl) as "Remaining Leaves"
 from emp_leave_info eli JOIN employee_info ei on eli.empid = ei.empid JOIN leave_info li on li.leave_category = ei.leave_catergory 
 where ei.empid='E002';
--->
+
 <span style="background-color: black;padding: 4px; color: white;">
 
 --2) write a query to display the employee id and employee name of the employees who have not been assigned a department yet.
