@@ -9,5 +9,17 @@
 -- '%' should be displayed as mentioned for tax percentage. 
 -- please do not display the details of the employees who are not assigned under any employee category.
 -- (Display the records sorted in ascending order based on employee id)
+
+
+SOLU ) : --
+
+select empid, empname, basic
+( case 
+    when basic <=4000 then '10%'
+    when basic > 4000 and basic <= 5000 then '20%'
+    when basic > 5000 and basic <= 6000 then '30%'
+    else '40%'
+    end ) "Tax Percentage" from employee_info e inner join salary_info s on (e.employee_category = s.employee_category) where empid is not null order by empid;
+    
 </pre>
 
