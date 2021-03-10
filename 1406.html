@@ -1,6 +1,75 @@
-1)
-2)
-3)
-4)
-5)
-6)
+Employee Schema:
+
+<span style="background-color: black;padding: 4px; color: white;">
+1)-- (1) write a query to display employee id, employee name and remaining actual leaves(alias name : Remaining Leaves)
+
+-- for the employee with employee id 'E002'. based on the total casual leaves available, 
+
+-- subtract the number of casual leaves he has availed to get the remaining leaves.
+
+</span>
+solu:)--
+
+select ei.empid, ei.empname, (sum(eli.total_leaves) - li.cl) as "Remaining Leaves"
+from emp_leave_info eli JOIN employee_info ei on eli.empid = ei.empid JOIN leave_info li on li.leave_category = ei.leave_catergory 
+where ei.empid='E002';
+---------------------------------------------------------------------------------------------------------------------------------------
+Mobile Schema :
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+2)--(2) write a query to display the IME number, model name, manufacturer , price and new price of all mobiles.
+
+</span>
+solu)--
+
+select ime_no, model_name, manufacturer , price , (price+(price*10/100)) "NEW PRICE" from mobile_master order by ime_no;
+---------------------------------------------------------------------------------------------------------------------------------------
+student schema :
+
+3)--(3) write a query which will display the id, name, tamil mark, hindi mark, science mark, maths mark, social mark, total mark, average mark and grade of all students. 
+--    Display records sorted in ascending order based on id.
+</span>
+solu:)---
+select sp.student_id, sp.student_name, sm.tamil_mark, sm.hindi_mark, sm.science_mark, sm.social_mark, sm.maths_mark, sg.total_mark, sg.average_mark, sg.grade
+from student_personal_info sp join student_grade_info sg on 
+sp.student_id = sg.student_id join student_mark_info sm on sm.student_id = sg.student_id 
+order by sp.student_id;
+<span style="background-color: black;padding: 4px; color: white;">
+
+  
+4)  -- (4) write a query which will display id, name, date of birth, guardian name, address, contact number, mail id, gender ,standard, transport and net fees of all the students.
+  --    Display all the records sorted in ascending order based on id.
+</span>
+solu:)---
+select soi.student_id, spi.dob, spi.guardian_name, spi.address, spi.contact_number, spi.mail_id, spi.gender, soi.standard, soi.transport, soi.net_fees
+from student_official_info soi join student_personal_info spi on soi.student_id = spi.student_id order by spi.student_id;
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Bank schema :
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+5)--(2) write a query which will display the customer id, account type they hold , their account number and  bank name.
+
+-- (Display the records sorted in ascending order based on customer id.)
+
+</span>
+solu:)--
+
+select a.customer_id,   a.account_type, a.account_no, b.bank_name from account_info a join bank_info b
+on (a.ifsc_code = b.ifsc_code) order by a.customer_id;
+
+<span style="background-color: black;padding: 4px; color: white;">
+
+6) --(3)write a query which will display customer id, customer name, age, identification document type of the customers whose age should be with in 26 and 28.
+
+-- (Display the records sorted in ascending order based on customer id.)
+
+</span>
+solu:)--
+
+select customer_id,customer_name, round(months_between(sysdate,dob)/12) as "Age",identification_doc_type from customer_personal_info 
+where age between 26 and 28 order by customer_id;
+
+
