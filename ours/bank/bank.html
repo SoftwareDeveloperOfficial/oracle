@@ -19,7 +19,7 @@ solu:)--
 
 SELECT a.customer_id, a.account_type, a.account_no FROM account_info a JOIN bank_info b on (a.ifsc_code = b.ifsc_code) 
 where b.bank_name  = 'HDFC' and reg_date between '12-JAN-2012' and '04-APR-2012' order by a.customer_id;
-
+<!--
 <span style="background-color: black;padding: 4px; color: white;">
 
 --2) write a query which will display the customer id, account type they hold , their account number and  bank name.
@@ -43,7 +43,7 @@ solu:)--
 
 select customer_id,customer_name, round(months_between(sysdate,dob)/12) as "Age",identification_doc_type from customer_personal_info 
 where age between 26 and 28 order by customer_id;
-
+-->
 <span style="background-color: black;padding: 4px; color: white;">
 
 --4) write a query which will display the customer id, customer name, account number, account type and  bank name where the customer hold the account sort by customer id.
