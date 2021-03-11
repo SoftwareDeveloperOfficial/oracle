@@ -12,7 +12,7 @@
 </span>
 solu) --
 
-select e.empid, e.empname, d.deptname from employee_info e join dept_info d 
+select e.empid, e.empname, d.deptid, d.deptname from employee_info e join dept_info d 
 on e.deptid = d.deptid
 where d.location = 'CHENNAI' 
 order by e.empid asc;
@@ -77,6 +77,9 @@ solu:)--
 
 
 select d.deptid, count(e.empname) as "Number of employees" from dept_info d join employee_info e
-where deptid <> null group by d.deptid order by deptid asc;
+ group by d.deptid order by deptid asc;
+
+--where deptid <> null
+
 
 </pre>
